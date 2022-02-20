@@ -1,6 +1,8 @@
 const { chalk } = require('@vue/cli-shared-utils')
 
 module.exports = cli => {
+  
+  // 注入Router插件选项
   cli.injectFeature({
     name: 'Router',
     value: 'router',
@@ -8,6 +10,7 @@ module.exports = cli => {
     link: 'https://router.vuejs.org/'
   })
 
+  // 注入路由模式选项
   cli.injectPrompt({
     name: 'historyMode',
     when: answers => answers.features.includes('router'),
@@ -17,6 +20,7 @@ module.exports = cli => {
     link: 'https://router.vuejs.org/guide/essentials/history-mode.html'
   })
 
+  // 选择选项后的逻辑
   cli.onPromptComplete((answers, options) => {
     if (answers.features.includes('router')) {
       options.plugins['@vue/cli-plugin-router'] = {
