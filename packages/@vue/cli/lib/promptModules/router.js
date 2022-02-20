@@ -17,6 +17,7 @@ module.exports = cli => {
     link: 'https://router.vuejs.org/guide/essentials/history-mode.html'
   })
 
+  // 选择选项后的操作
   cli.onPromptComplete((answers, options) => {
     if (answers.features.includes('router')) {
       options.plugins['@vue/cli-plugin-router'] = {
